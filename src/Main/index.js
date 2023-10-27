@@ -109,34 +109,36 @@ function Main() {
             </div>
 
             <div className='flex flex-col lg:flex-row justify-between py-2 lg:py-4'>
-              <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
-                <div className='block my-1 lg:mt-0 lg:mb-1'>
-                  <label className='text-sm text-[#292929]'>Mes de vencimiento</label>
+              <div className='flex flex-row justify-between h-[86px] lg:w-[446.5px] lg:h-[80px]'>
+                <div className='flex flex-col w-[140px] lg:w-[205px] lg:h-[80px]'>
+                  <div className='block my-1 lg:mt-0 lg:mb-1'>
+                    <label className='text-sm text-[#292929]'>Mes de vencimiento</label>
+                  </div>
+                  <div className='block my-1 lg:mb-0 lg:mt-1'>
+                    <select name='mesVenci' placeholder='Mes' class='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4'>
+                      <option className='text-base text-sky-gray-120 p-4'>Mes</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="01">01</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="02">02</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="03">03</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="04">04</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="05">05</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="06">06</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="07">07</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="08">08</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="09">09</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="10">10</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="11">11</option>
+                      <option className='text-base text-sky-gray-120 p-4' value="12">12</option>
+                    </select>
+                  </div>
                 </div>
-                <div className='block my-1 lg:mb-0 lg:mt-1'>
-                  <select name='mesVenci' placeholder='Mes' class='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4'>
-                    <option className='text-base text-sky-gray-120 p-4'>Mes</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="01">01</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="02">02</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="03">03</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="04">04</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="05">05</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="06">06</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="07">07</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="08">08</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="09">09</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="10">10</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="11">11</option>
-                    <option className='text-base text-sky-gray-120 p-4' value="12">12</option>
-                  </select>
-                </div>
-              </div>
-              <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
-                <div className='block my-1 lg:mt-0 lg:mb-1'>
-                  <label className='text-sm text-[#292929]'>Año de vencimiento</label>
-                </div>
-                <div className='block my-1 lg:mb-0 lg:mt-1'>
-                  <input type='tel' name='anioVenci' placeholder='Año' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                <div className='flex flex-col w-[140px] lg:w-[205px] lg:h-[80px]'>
+                  <div className='block my-1 lg:mt-0 lg:mb-1'>
+                    <label className='text-sm text-[#292929]'>Año de vencimiento</label>
+                  </div>
+                  <div className='block my-1 lg:mb-0 lg:mt-1'>
+                    <input type='tel' name='anioVenci' placeholder='Año' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                  </div>
                 </div>
               </div>
               <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
@@ -144,7 +146,7 @@ function Main() {
                   <label className='text-sm text-[#292929]'>CVV</label>
                 </div>
                 <div className='block my-1 lg:mb-0 lg:mt-1'>
-                  <input type='password' name='apellidoMaterno' placeholder='CVV' maxLength={3} className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                  <input type='password' name='ccv' placeholder='CVV' maxLength={3} className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
                 </div>
               </div>
             </div>
