@@ -5,10 +5,13 @@ import aMex from "../Images/AmericanExpress.png";
 import "./Main.css"
 
 function Main() {
+  
+  const [requerido, setRequerido] = React.useState(false);
+  
     return (
       <>
         <div class="flex flex-col justify-center items-center ">
-          <div className='lg:border-[1px] border-sky-gray-500 rounded-[10px] mx-9 my-[125px] lg:mx-0 lg:my-[153px] w-[320px] h-[1900px] lg:w-[728px] lg:h-[1282px] lg:px-[18px] lg:py-8'>
+          <div className={`lg:border-[1px] border-sky-gray-500 rounded-[10px] mx-9 my-[125px] lg:mx-0 lg:my-[153px] w-[320px] h-[1900px] lg:w-[728px]  lg:px-[18px] lg:py-8 ${requerido ? 'lg:h-[1435px]' : 'lg:h-[1335px]'}`}>
             <div className='flex justify-between items-start flex-col lg:flex-row text-[#292929] border-b-[1px] border-sky-gray-500 pb-6'>
               <div>
                 <span className='text-[22px] font-medium'>Pago con tarjeta</span>
@@ -151,15 +154,156 @@ function Main() {
               </div>
             </div>
             
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda a quidem enim, quibusdam laborum impedit in soluta similique, repellat dolore neque quas distinctio? Molestiae ab impedit officia odio placeat earum.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda a quidem enim, quibusdam laborum impedit in soluta similique, repellat dolore neque quas distinctio? Molestiae ab impedit officia odio placeat earum.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda a quidem enim, quibusdam laborum impedit in soluta similique, repellat dolore neque quas distinctio? Molestiae ab impedit officia odio placeat earum.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda a quidem enim, quibusdam laborum impedit in soluta similique, repellat dolore neque quas distinctio? Molestiae ab impedit officia odio placeat earum.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda a quidem enim, quibusdam laborum impedit in soluta similique, repellat dolore neque quas distinctio? Molestiae ab impedit officia odio placeat earum.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda a quidem enim, quibusdam laborum impedit in soluta similique, repellat dolore neque quas distinctio? Molestiae ab impedit officia odio placeat earum.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda a quidem enim, quibusdam laborum impedit in soluta similique, repellat dolore neque quas distinctio? Molestiae ab impedit officia odio placeat earum.
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Assumenda a quidem enim, quibusdam laborum impedit in soluta similique, repellat dolore neque quas distinctio? Molestiae ab impedit officia odio placeat earum.
+            <span className='text-xl text-sky-black-100 font-normal'>Dirección</span>
+
+            <div className='flex flex-col lg:flex-row justify-between pt-2 lg:pt-4'>
+              <div className={`flex flex-col lg:w-[446.5px] ${requerido ? 'h-[104px]' : 'h-[86px] lg:h-[80px]'}`}>
+                <div className='block my-1 lg:mt-0 lg:mb-1'>
+                  <label className='text-sm text-[#292929]'>Calle</label>
+                </div>
+                <div className='block mt-1'>
+                  <input type='text' name='Calle' placeholder='Calle' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                </div>
+                <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                  <span>Campo requerido</span>
+                </div>
+              </div>
+              <div className={`hidden lg:flex flex-col w-[205px] ${requerido ? 'h-[104px]' : 'h-[86px] lg:h-[80px]'}`}>
+                <div className='block my-1 lg:mt-0 lg:mb-1'>
+                  <label className='text-sm text-[#292929]'>Número exterior</label>
+                </div>
+                <div className='block mt-1'>
+                  <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                </div>
+                <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                  <span>Campo requerido</span>
+                </div>
+              </div>
+            </div>
+
+            <div className='lg:hidden flex flex-col justify-between pt-2'>
+              <div className={`flex flex-row justify-between ${requerido ? 'h-[104px]' : ' h-[86px]'}`}>
+                <div className='flex flex-col w-[140px]'>
+                  <div className='block my-1'>
+                    <label className='text-sm text-[#292929]'>Número exterior</label>
+                  </div>
+                  <div className='block mt-1'>
+                    <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                  </div>
+                  <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                    <span>Campo requerido</span>
+                  </div>
+                </div>
+                <div className='flex flex-col w-[140px]'>
+                  <div className='block my-1'>
+                    <label className='text-sm text-[#292929]'>Número interior</label>
+                  </div>
+                  <div className='block mt-1'>
+                    <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                  </div>
+                  <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                    <span>Campo requerido</span>
+                  </div>
+                </div>
+              </div>
+            </div>
             
+            <div className='flex flex-col lg:flex-row justify-between pt-2 lg:pt-4'>
+              <div className={`hidden lg:flex flex-col w-[205px] ${requerido ? 'h-[104px]' : 'h-[86px] lg:h-[80px]'}`}>
+                <div className='block my-1 lg:mt-0 lg:mb-1'>
+                  <label className='text-sm text-[#292929]'>Número interior</label>
+                </div>
+                <div className='block mt-1'>
+                  <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                </div>
+                <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                  <span>Campo requerido</span>
+                </div>
+              </div>
+              <div className={`flex flex-col lg:w-[446.5px] ${requerido ? 'h-[104px]' : 'h-[86px] lg:h-[80px]'}`}>
+                <div className='block my-1 lg:mt-0 lg:mb-1'>
+                  <label className='text-sm text-[#292929]'>Colonia</label>
+                </div>
+                <div className='block mt-1'>
+                  <input type='text' name='colonia' placeholder='Colonia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                </div>
+                <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                  <span>Campo requerido</span>
+                </div>
+              </div>
+            </div>
+
+            <div className='flex flex-col lg:flex-row justify-between pt-2 lg:pt-4'>
+              <div className={`flex flex-col lg:w-[326px] ${requerido ? 'h-[104px]' : 'h-[86px] lg:h-[80px]'}`}>
+                <div className='block my-1 lg:mt-0 lg:mb-1'>
+                  <label className='text-sm text-[#292929]'>Ciudad</label>
+                </div>
+                <div className='block mt-1'>
+                  <input type='text' name='ciudad' placeholder='Ciudad' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                </div>
+                <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                  <span>Campo requerido</span>
+                </div>
+              </div>
+              <div className={`flex flex-col lg:w-[326px] ${requerido ? 'h-[104px]' : 'h-[86px] lg:h-[80px]'}`}>
+                <div className='block my-1 lg:mt-0 lg:mb-1'>
+                  <label className='text-sm text-[#292929]'>Alcaldia o Municipio</label>
+                </div>
+                <div className='block mt-1'>
+                  <input type='text' name='alcaldia' placeholder='Alcaldia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                </div>
+                <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                  <span>Campo requerido</span>
+                </div>
+              </div>
+            </div>
+
+            <div className='flex flex-col lg:flex-row justify-between pt-2 lg:pt-4'>
+              <div className={`flex flex-col lg:w-[446.5px] ${requerido ? 'h-[104px]' : 'h-[86px] lg:h-[80px]'}`}>
+                <div className='block my-1 lg:mt-0 lg:mb-1'>
+                  <label className='text-sm text-[#292929]'>Estado</label>
+                </div>
+                <div className='block mt-1'>
+                  <input type='text' name='Estado' placeholder='Estado' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                </div>
+                <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                  <span>Campo requerido</span>
+                </div>
+              </div>
+              <div className={`flex flex-col lg:w-[205px] ${requerido ? 'h-[104px]' : 'h-[86px] lg:h-[80px]'}`}>
+                <div className='block my-1 lg:mt-0 lg:mb-1'>
+                  <label className='text-sm text-[#292929]'>Código Postal</label>
+                </div>
+                <div className='block mt-1'>
+                  <input type='tel' name='cp' placeholder='56789' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                </div>
+                <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
+                  <span>Campo requerido</span>
+                </div>
+              </div>
+            </div>
+
+            <div className='flex flex-col lg:flex-row justify-between'>
+              <div className='flex flex-col h-[38px] lg:h-[74px] py-2 lg:py-7'>
+                <span className='text-xs text-sky-black-100 font-normal'>
+                  Todos los campos son requeridos
+                </span>
+              </div>
+            </div>
+            
+            <div className='flex flex-row items-center justify-around h-[108px] lg:h-[118px] py-8 lg:p-8 lg:mb-8'>
+              <button className='block h-[48px] w-full lg:w-[344px] bg-[#000FF5] text-white'>
+                <div className='flex justify-between items-start flex-row px-4'>
+                  <span className='hidden lg:block text-base font-medium'>Continuar</span>
+                  <span className='lg:hidden text-base font-medium'>Confirmar</span>
+                  <div className='h-6 w-6 py-1'>
+                    <svg className='h-[15px] w-[18px]' viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M10.5 0.715332L9.4275 1.76008L15.1125 7.46533H0V8.96533H15.1125L9.4275 14.6451L10.5 15.7153L18 8.21533L10.5 0.715332Z" fill="white"/>
+                    </svg>
+                  </div>
+                </div>
+              </button>
+            </div>
           </div>
         </div> 
       </>
