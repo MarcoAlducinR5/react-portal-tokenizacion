@@ -4,7 +4,7 @@ import { Confirmacion } from './Confirmacion';
 
 function Main() {
   
-  const [estadoPago, setEstadoPago] = React.useState(true);
+  const [estadoPago, setEstadoPago] = React.useState(false);
 
   return (
     <React.Fragment>
