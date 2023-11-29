@@ -5,16 +5,30 @@ import { getInstanciaParametrosDesdeParametroURL } from '../../src/Functions/get
 
 function Main() {
   
+  /**
+  * Obtiene la instancia del parámetro {@code code}.
+  */
   const urlParams = new URLSearchParams(window.location.search);
-  
+  let code = urlParams.get('code'); 
+
   /*
   * Inicializa los datos del portal.
   */
   const inicializaDatosPortal = () => {
-    let datosParametroCodeDeURL = getInstanciaParametrosDesdeParametroURL(urlParams);
-    // llamaInicializaDatosParametroCode(datosParametroCodeDeURL);
-    // inicializaDatosPeticion();
-    return datosParametroCodeDeURL;
+    if(code===null){
+      return "No se recuperó el parametro CODE de la cadena obtenida de la URL.";
+    }
+    else{
+      try {
+        let datosParametroCodeDeURL = getInstanciaParametrosDesdeParametroURL(code);
+        // llamaInicializaDatosParametroCode(datosParametroCodeDeURL);
+        // inicializaDatosPeticion();
+        return datosParametroCodeDeURL;
+      }
+      catch (error) {
+        console.error('Error al parsear los datos:', error);
+      }
+    }
   }
   
   console.log(inicializaDatosPortal());
