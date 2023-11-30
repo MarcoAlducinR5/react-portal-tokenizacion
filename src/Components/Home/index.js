@@ -2,19 +2,17 @@ import React from 'react';
 import { Pago } from './Pago';
 import { Confirmacion } from './Confirmacion';
 import { getInstanciaParametrosDesdeParametroURL } from '../../Utils/getInstanciaParametrosDesdeParametroURL.ts';
+import { getParametroCodeDeURL } from '../../Utils/getParametroCodeDeUrl.ts';
 
 function Home() {
   
-  /**
-  * Obtiene la instancia del parámetro {@code code}.
-  */
-  const urlParams = new URLSearchParams(window.location.search);
-  let code = urlParams.get('code'); 
+  /*** Obtiene el valor del parámetro de la URL ***/
+  let code = getParametroCodeDeURL(); 
 
   /*
   * Inicializa los datos del portal.
   */
-  const inicializaDatosPortal = () => {
+  const inicializaDatosPortal = (code) => {
     if(code===null){
       return "No se recuperó el parametro CODE de la cadena obtenida de la URL.";
     }
@@ -31,7 +29,7 @@ function Home() {
     }
   }
   
-  console.log(inicializaDatosPortal());
+  console.log(inicializaDatosPortal(code));
   const [estadoPago, setEstadoPago] = React.useState(false);
 
   return (
