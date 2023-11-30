@@ -1,5 +1,5 @@
 import React from 'react';
-import logoSky from "../Images/logoSky.png";
+import logoSky from "../../Assets/Images/logoSky.png";
 
 function Header() {
     return (

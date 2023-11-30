@@ -1,13 +1,13 @@
 //import  from '';
 
-const { Header } = require("../Header");
-const { Main } = require("../Main");
+const { Header } = require("../Components/Header");
+const { Home } = require("../Components/Home");
 
 function App() {
   return (
     <>
       <Header />
-      <Main />
+      <Home />
     </>
   );
 }

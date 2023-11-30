@@ -1,7 +1,7 @@
 import React from 'react';
-import visa from "../../Images/Visa.png";
-import masterCard from "../../Images/MasterCard.png";
-import aMex from "../../Images/AmericanExpress.png";
+import visa from "../../../Assets/Images/Visa.png";
+import masterCard from "../../../Assets/Images/MasterCard.png";
+import aMex from "../../../Assets/Images/AmericanExpress.png";
 import "./Pago.css"
 
 function Pago(){

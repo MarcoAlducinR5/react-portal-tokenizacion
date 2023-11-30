@@ -1,9 +1,9 @@
 import React from 'react';
 import { Pago } from './Pago';
 import { Confirmacion } from './Confirmacion';
-import { getInstanciaParametrosDesdeParametroURL } from '../../src/Functions/getInstanciaParametrosDesdeParametroURL.ts';
+import { getInstanciaParametrosDesdeParametroURL } from '../../Utils/getInstanciaParametrosDesdeParametroURL.ts';
 
-function Main() {
+function Home() {
   
   /**
   * Obtiene la instancia del parámetro {@code code}.
@@ -42,5 +42,5 @@ function Main() {
 
 }
 
-export {Main};
+export {Home};
   
