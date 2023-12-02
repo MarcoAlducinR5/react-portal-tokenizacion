@@ -4,7 +4,7 @@ import masterCard from "../../../Assets/Images/MasterCard.png";
 import aMex from "../../../Assets/Images/AmericanExpress.png";
 import "./Pago.css"
 
-function Pago(){
+function Pago({data}){
     
     const [requerido, setRequerido] = React.useState(false);
     
@@ -21,6 +21,7 @@ function Pago(){
                         <br className='lg:hidden' />
                         <span className='text-base font-normal'>Identificador: 12345678</span>
                     </div>
+                    
 
                     <div class="radio-group flex justify-between items-center flex-row w-full lg:w-[692px] h-[100px] lg:h-[67px] px-2 lg:px-40 lg:my-5">
                         <input type="radio" name="option" id="option1" className='appearance-none' />
@@ -53,7 +54,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Nombre</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='text' name='nombre' placeholder='Nombre' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='text' name='nombre' placeholder='Nombre' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Nombre}  />
                             </div>
                         </div>
                         <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
@@ -61,7 +62,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Apellido paterno</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='text' name='apellidoPaterno' placeholder='Apellido paterno' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='text' name='apellidoPaterno' placeholder='Apellido paterno' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Paterno} />
                             </div>
                         </div>
                         <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
@@ -69,7 +70,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Apellido materno</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='text' name='apellidoMaterno' placeholder='Apellido materno' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='text' name='apellidoMaterno' placeholder='Apellido materno' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Materno} />
                             </div>
                         </div>
                     </div>
@@ -80,7 +81,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Correo electrónico</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='email' name='correo' placeholder='mail@mail.com' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='email' name='correo' placeholder='mail@mail.com' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Email} />
                             </div>
                         </div>
                         <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
@@ -88,7 +89,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Número telefónico</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='tel' name='telefono' placeholder='Teléfono' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='tel' name='telefono' placeholder='Teléfono' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Telefono} />
                             </div>
                         </div>
                     </div>
@@ -163,7 +164,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Calle</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='Calle' placeholder='Calle' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='text' name='Calle' placeholder='Calle' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Calle} />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -174,7 +175,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Número exterior</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.NumExt} />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -189,7 +190,7 @@ function Pago(){
                                     <label className='text-sm text-[#292929]'>Número exterior</label>
                                 </div>
                                 <div className='block mt-1'>
-                                    <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                    <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.NumExt} />
                                 </div>
                                 <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                     <span>Campo requerido</span>
@@ -200,7 +201,7 @@ function Pago(){
                                     <label className='text-sm text-[#292929]'>Número interior</label>
                                 </div>
                                 <div className='block mt-1'>
-                                    <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                    <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.NumInt} />
                                 </div>
                                 <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                     <span>Campo requerido</span>
@@ -215,7 +216,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Número interior</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.NumInt} />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -226,7 +227,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Colonia</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='colonia' placeholder='Colonia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='text' name='colonia' placeholder='Colonia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Colonia} />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -240,7 +241,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Ciudad</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='ciudad' placeholder='Ciudad' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='text' name='ciudad' placeholder='Ciudad' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Ciudad} />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -251,7 +252,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Alcaldia o Municipio</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='alcaldia' placeholder='Alcaldia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='text' name='alcaldia' placeholder='Alcaldia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Municipio} />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -265,7 +266,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Estado</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='Estado' placeholder='Estado' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='text' name='Estado' placeholder='Estado' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Estado} />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -276,7 +277,7 @@ function Pago(){
                                 <label className='text-sm text-[#292929]'>Código Postal</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='tel' name='cp' placeholder='56789' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' />
+                                <input type='tel' name='cp' placeholder='56789' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.CP} />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
