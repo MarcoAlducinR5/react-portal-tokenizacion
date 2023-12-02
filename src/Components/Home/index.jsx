@@ -1,11 +1,11 @@
 import React from 'react';
-import { Pago } from './Pago';
-import { Confirmacion } from './Confirmacion';
+import { Pago } from './Pago/index.jsx';
+import { Confirmacion } from './Confirmacion/index.jsx';
 import { getInstanciaParametrosDesdeParametroURL } from '../../Utils/getInstanciaParametrosDesdeParametroURL.ts';
 import { inicializaDatosPeticion } from '../../Utils/inicializaDatosPeticion.ts';
 import { getParametroCodeDeURL } from '../../Utils/getParametroCodeDeUrl.ts';
 
-function Home() {
+const Home = () => {
   
   /*** Obtiene el valor del parámetro de la URL ***/
   let code = getParametroCodeDeURL(); 
@@ -21,38 +21,34 @@ function Home() {
     CadValidacion : "", Servicio : "", IdUnicoPago : "", NumeroContrato : "", 
     Promocion1 : "", Descripcion1 : "", Precio1 : "", Cantidad1 : "",
   });
+  console.log(data)
   
   React.useEffect(() => {
-    // Decode the base64-encoded code
-    const decodedCode = inicializaDatosPortal(code)
 
-    // Assuming the decoded code is a query string, you can parse it into an object
-    const decodedData = decodedCode.split('&').reduce((acc, pair) => {
-      const [key, value] = pair.split('=');
-      acc[key] = decodeURIComponent(value);
-      return acc;
-    }, {});
+     // Convertir la cadena de consulta en un objeto
+     const params = new URLSearchParams(inicializaDatosPortal(code));
 
-    setData(decodedData);
+     // Crear un objeto con los valores de cada parámetro
+     const newData = {};
+     params.forEach((value, key) => {
+       newData[key] = value;
+     });
+
+     setData(newData);
   }, [code]);
+  /* }, []); */
+
   const inicializaDatosPortal = (code) => {
     if(code===null){
       return "No se recuperó el parametro CODE de la cadena obtenida de la URL.";
     }
     else{
-      try {
-        let datosParametroCodeDeURL = getInstanciaParametrosDesdeParametroURL(code);
-        inicializaDatosPeticion();
-        return datosParametroCodeDeURL;
-      }
-      catch (error) {
-        console.error('Error al parsear los datos:', error);
-      }
+      let datosParametroCodeDeURL = getInstanciaParametrosDesdeParametroURL(code);
+      //inicializaDatosPeticion();
+      return datosParametroCodeDeURL;
     }
   }
-  
-  //console.log(inicializaDatosPortal(code));
-  console.log(data);
+
   const [estadoPago, setEstadoPago] = React.useState(false);
 
   return (

@@ -3,7 +3,7 @@
 const { Header } = require("../Components/Header");
 const { Home } = require("../Components/Home");
 
-function App() {
+const App = () => {
   return (
     <>
       <Header />

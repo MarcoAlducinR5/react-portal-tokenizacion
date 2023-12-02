@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Confirmacion(){
+const Confirmacion = () => {
     
     return (
-        <React.Fragment>
-            <div class="flex flex-col justify-center items-center ">
+        <>
+            <div className="flex flex-col justify-center items-center ">
                 <div className='lg:border-[1px] border-sky-gray-500 rounded-[10px] mx-9 my-[125px] lg:mx-0 lg:my-[153px] w-[281px] h-[617px] lg:w-[728px] lg:h-[395px] lg:px-[18px] lg:pt-8'>
                     
                     <div className='flex flex-col mb-14 lg:mb-11'>
@@ -61,7 +61,7 @@ function Confirmacion(){
 
                 </div>
             </div>
-        </React.Fragment>
+        </>
     );
 
 }
