@@ -21,7 +21,7 @@ const Home = () => {
     CadValidacion : "", Servicio : "", IdUnicoPago : "", NumeroContrato : "", 
     Promocion1 : "", Descripcion1 : "", Precio1 : "", Cantidad1 : "",
   });
-  console.log(data)
+  console.log(data);
   
   React.useEffect(() => {
 
@@ -36,7 +36,6 @@ const Home = () => {
 
      setData(newData);
   }, [code]);
-  /* }, []); */
 
   const inicializaDatosPortal = (code) => {
     if(code===null){
@@ -44,7 +43,7 @@ const Home = () => {
     }
     else{
       let datosParametroCodeDeURL = getInstanciaParametrosDesdeParametroURL(code);
-      //inicializaDatosPeticion();
+      inicializaDatosPeticion(data);
       return datosParametroCodeDeURL;
     }
   }
