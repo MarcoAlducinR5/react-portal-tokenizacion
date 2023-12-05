@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Confirmacion = () => {
+const Confirmacion: React.FC = () => {
     
     return (
         <>

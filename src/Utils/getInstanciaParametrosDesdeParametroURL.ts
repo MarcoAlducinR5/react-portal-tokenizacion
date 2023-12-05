@@ -1,4 +1,4 @@
-import { decryptBase64ArrayByteToString } from './decryptBase64ArrayByteToString.ts';
+import { decryptBase64ArrayByteToString } from './decryptBase64ArrayByteToString';
 
 /**
 * Desencripta el valor del parámetro {@code "code"} que viene en la URL.

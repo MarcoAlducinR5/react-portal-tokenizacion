@@ -44,3 +44,43 @@ export const TIPO_CREDITO = "CREDITO";
 export const TIPO_DEBITO = "DEBITO";
 export const TIPO_CREDITO_SF = "Credit Card";
 export const TIPO_DEBITO_SF = "Debit Card";
+
+/**
+ * Constantes para, una vez el desencriptado de los datos, se guarden en estas constantes
+ */
+export const code = "";
+export const sistemaOrigen = "";
+export const cadenaValidacion = "";
+export const servicio = "";
+export const operacion = "";
+export const tipoPago = "";
+export const proceso = "";
+export const identificador = "";
+export const idProspecto = "";
+export const numeroCuenta = "";
+export const nombre = "";
+export const aPaterno = "";
+export const aMaterno = "";
+export const email = "";
+export const calle = "";
+export const numExt = "";
+export const numInt = "";
+export const pais = "";
+export const telefono = "";
+export const colonia = "";
+export const ciudad = "";
+export const estado = "";
+export const municipio = "";
+export const codigoPostal = "";
+export const timestamp = "";
+export const moneda = "";
+export const monto = "";
+export const urlBTGS = "";
+export const codeUrlBTGS = "";
+export const contrato = "";
+export const codeParamValue = "";
+
+/**
+ * Los datos del par&aacute;metro {@code code} de la URL.
+ */
+export const datosParametroCodeDeURL = "";

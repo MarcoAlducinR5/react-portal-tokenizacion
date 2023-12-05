@@ -1,11 +1,11 @@
 import React from 'react';
-import { Pago } from './Pago/index.jsx';
-import { Confirmacion } from './Confirmacion/index.jsx';
-import { getInstanciaParametrosDesdeParametroURL } from '../../Utils/getInstanciaParametrosDesdeParametroURL.ts';
-import { inicializaDatosPeticion } from '../../Utils/inicializaDatosPeticion.ts';
-import { getParametroCodeDeURL } from '../../Utils/getParametroCodeDeUrl.ts';
+import { Pago } from './Pago';
+import { Confirmacion } from './Confirmacion';
+import { getInstanciaParametrosDesdeParametroURL } from '../../Utils/getInstanciaParametrosDesdeParametroURL';
+import { inicializaDatosPeticion } from '../../Utils/inicializaDatosPeticion';
+import { getParametroCodeDeURL } from '../../Utils/getParametroCodeDeUrl';
 
-const Home = () => {
+const Home: React.FC = () => {
   
   /*** Obtiene el valor del parámetro de la URL ***/
   let code = getParametroCodeDeURL(); 

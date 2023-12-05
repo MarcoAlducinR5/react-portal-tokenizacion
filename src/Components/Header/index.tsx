@@ -1,7 +1,7 @@
 import React from 'react';
 import logoSky from "../../Assets/Images/logoSky.png";
 
-const Header = () => {
+const Header: React.FC = () => {
   return (
     <>
       <header className='fixed top-0 w-full bg-white border-b-2'>

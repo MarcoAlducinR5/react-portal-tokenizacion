@@ -4,7 +4,7 @@ import masterCard from "../../../Assets/Images/MasterCard.png";
 import aMex from "../../../Assets/Images/AmericanExpress.png";
 import "./Pago.css"
 
-const Pago = ({data}) => {
+const Pago: React.FC = ({data}) => {
     
     const [requerido, setRequerido] = React.useState(false);
     
