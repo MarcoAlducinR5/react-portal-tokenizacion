@@ -8,7 +8,7 @@ import { getParametroCodeDeURL } from '../../Utils/getParametroCodeDeUrl';
 const Home: React.FC = () => {
   
   /*** Obtiene el valor del parámetro de la URL ***/
-  let code = getParametroCodeDeURL(); 
+  let code: string | null = getParametroCodeDeURL(); 
 
   /*
   * Inicializa los datos del portal.
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
      setData(newData);
   }, [code]);
 
-  const inicializaDatosPortal = (code) => {
+  const inicializaDatosPortal = (code: string | null) => {
     if(code===null){
       return "No se recuperó el parametro CODE de la cadena obtenida de la URL.";
     }
