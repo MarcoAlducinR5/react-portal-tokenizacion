@@ -13,7 +13,7 @@ const Home: React.FC = () => {
   /*
   * Inicializa los datos del portal.
   */
-  const [data, setData] = React.useState({
+  /* const [data, setData] = React.useState({
     Origen : "", Operacion : "", Cuenta : "", IdProspecto : "", Nombre : "", 
     Paterno : "", Materno : "", Email : "", Calle : "", NumExt : "", NumInt : "",
     Colonia : "", PaisISO : "", Telefono : "", Ciudad : "", Estado : "",
@@ -35,7 +35,7 @@ const Home: React.FC = () => {
      });
 
      setData(newData);
-  }, [code]);
+  }, [code]); */
 
   const inicializaDatosPortal = (code: string | null) => {
     if(code===null){
@@ -43,16 +43,18 @@ const Home: React.FC = () => {
     }
     else{
       let datosParametroCodeDeURL = getInstanciaParametrosDesdeParametroURL(code);
-      inicializaDatosPeticion(data);
+      //inicializaDatosPeticion(data);
       return datosParametroCodeDeURL;
     }
   }
 
   const [estadoPago, setEstadoPago] = React.useState(false);
 
+  const valor: number = 15;
+
   return (
     <React.Fragment>
-      { estadoPago ? <Confirmacion /> : <Pago data={data} /> }
+      { estadoPago ? <Confirmacion /> : <Pago valor={valor} /> }
     </React.Fragment>
   );
 

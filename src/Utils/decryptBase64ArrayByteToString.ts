@@ -1,5 +1,5 @@
-import * as aesjs from 'aes-js';
-import { Buffer } from 'buffer';
+import * as aesjs from 'aes-js/index';
+import { Buffer } from 'buffer/index';
 
 const keyV = "Pr0c3s0R3g1str0S";
 const initv = "R3g1str0Pr0c3s0S";

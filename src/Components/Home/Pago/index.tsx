@@ -4,7 +4,7 @@ import masterCard from "../../../Assets/Images/MasterCard.png";
 import aMex from "../../../Assets/Images/AmericanExpress.png";
 import "./Pago.css"
 
-const Pago: React.FC = ({data}) => {
+const Pago: React.FC <{ valor: number }>  = ({valor}) => {
     
     const [requerido, setRequerido] = React.useState(false);
     
@@ -14,12 +14,12 @@ const Pago: React.FC = ({data}) => {
                 <div className={`lg:border-[1px] border-sky-gray-500 rounded-[10px] mx-9 my-[125px] lg:mx-0 lg:my-[153px] w-[320px] h-[1900px] lg:w-[728px]  lg:px-[18px] lg:py-8 ${requerido ? 'lg:h-[1435px]' : 'lg:h-[1335px]'}`}>
                     <div className='flex justify-between items-start flex-col lg:flex-row text-[#292929] border-b-[1px] border-sky-gray-500 pb-6'>
                         <div>
-                            <span className='text-[22px] font-medium'>Pago con tarjeta</span>
+                            <span className='text-[22px] font-medium'>Pago con tarjeta {valor}</span>
                             <br/>
                             <span className='text-lg font-normal'>Ingresa los datos de tu tarjeta</span>
                         </div>
                         <br className='lg:hidden' />
-                        <span className='text-base font-normal'>Identificador: {data.IdProspecto}</span>
+                        <span className='text-base font-normal'>Identificador: {/* data.IdProspecto */}</span>
                     </div>
                     
 
@@ -54,7 +54,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Nombre</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='text' name='nombre' placeholder='Nombre' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Nombre}  />
+                                <input type='text' name='nombre' placeholder='Nombre' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Nombre}"  />
                             </div>
                         </div>
                         <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
@@ -62,7 +62,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Apellido paterno</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='text' name='apellidoPaterno' placeholder='Apellido paterno' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Paterno} />
+                                <input type='text' name='apellidoPaterno' placeholder='Apellido paterno' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Paterno}" />
                             </div>
                         </div>
                         <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
@@ -70,7 +70,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Apellido materno</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='text' name='apellidoMaterno' placeholder='Apellido materno' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Materno} />
+                                <input type='text' name='apellidoMaterno' placeholder='Apellido materno' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Materno}" />
                             </div>
                         </div>
                     </div>
@@ -81,7 +81,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Correo electrónico</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='email' name='correo' placeholder='mail@mail.com' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Email} />
+                                <input type='email' name='correo' placeholder='mail@mail.com' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Email}" />
                             </div>
                         </div>
                         <div className='flex flex-col h-[86px] lg:w-[205px] lg:h-[80px]'>
@@ -89,7 +89,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Número telefónico</label>
                             </div>
                             <div className='block my-1 lg:mb-0 lg:mt-1'>
-                                <input type='tel' name='telefono' placeholder='Teléfono' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Telefono} />
+                                <input type='tel' name='telefono' placeholder='Teléfono' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Telefono}" />
                             </div>
                         </div>
                     </div>
@@ -164,7 +164,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Calle</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='Calle' placeholder='Calle' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Calle} />
+                                <input type='text' name='Calle' placeholder='Calle' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Calle}" />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -175,7 +175,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Número exterior</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.NumExt} />
+                                <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.NumExt}" />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -190,7 +190,7 @@ const Pago: React.FC = ({data}) => {
                                     <label className='text-sm text-[#292929]'>Número exterior</label>
                                 </div>
                                 <div className='block mt-1'>
-                                    <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.NumExt} />
+                                    <input type='tel' name='exterior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.NumExt}" />
                                 </div>
                                 <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                     <span>Campo requerido</span>
@@ -201,7 +201,7 @@ const Pago: React.FC = ({data}) => {
                                     <label className='text-sm text-[#292929]'>Número interior</label>
                                 </div>
                                 <div className='block mt-1'>
-                                    <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.NumInt} />
+                                    <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.NumInt}" />
                                 </div>
                                 <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                     <span>Campo requerido</span>
@@ -216,7 +216,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Número interior</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.NumInt} />
+                                <input type='tel' name='interior' placeholder='No.' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.NumInt}" />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -227,7 +227,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Colonia</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='colonia' placeholder='Colonia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Colonia} />
+                                <input type='text' name='colonia' placeholder='Colonia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Colonia}" />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -241,7 +241,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Ciudad</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='ciudad' placeholder='Ciudad' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Ciudad} />
+                                <input type='text' name='ciudad' placeholder='Ciudad' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Ciudad}" />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -252,7 +252,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Alcaldia o Municipio</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='alcaldia' placeholder='Alcaldia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Municipio} />
+                                <input type='text' name='alcaldia' placeholder='Alcaldia' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Municipio}" />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -266,7 +266,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Estado</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='text' name='Estado' placeholder='Estado' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.Estado} />
+                                <input type='text' name='Estado' placeholder='Estado' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.Estado}" />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>
@@ -277,7 +277,7 @@ const Pago: React.FC = ({data}) => {
                                 <label className='text-sm text-[#292929]'>Código Postal</label>
                             </div>
                             <div className='block mt-1'>
-                                <input type='tel' name='cp' placeholder='56789' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue={data.CP} />
+                                <input type='tel' name='cp' placeholder='56789' className='w-full h-[40px] lg:h-[48px] rounded border-[1px] border-sky-gray-500 focus:outline-none focus:border-[#DA1E28] placeholder:text-base placeholder:text-sky-gray-120 placeholder:p-4' defaultValue="{data.CP}" />
                             </div>
                             <div className={`h-[18px] text-xs text-[#DA1E28] ${requerido ? 'block' : 'hidden'}`}>
                                 <span>Campo requerido</span>

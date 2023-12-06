@@ -10,7 +10,7 @@ import {
   DatosTransaccionEntrada,
   RespuestaPagoTarjeta
 } from "../interfaces/billetera/OrquestaProcesoPago.Interface";
-import { formatDateToUTCString } from "../../utils/format";
+import { formatDateToUTCString } from "../../Utils/format";
 
 const {
   REACT_APP_URL_APIGWCS,
