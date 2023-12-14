@@ -27,11 +27,11 @@ export const EbmHeaderRequestApigwcs = (
 ) => {
   const reqHeader: EBMHeaderRequestCs = {
     Operacion: operacion,
-    SistemaOrigen: sistemaOrigen ?? "SEL",
+    SistemaOrigen: sistemaOrigen ?? "PortalTokenizacion",
     SeguridadList: {
       SeguridadItem: [
         {
-          SistemaAAutenticar: "SEL",
+          SistemaAAutenticar: sistemaOrigen ?? "PortalTokenizacion",
           Username: "",
           Password: ""
         }
