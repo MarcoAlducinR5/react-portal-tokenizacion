@@ -5,6 +5,8 @@ import { getInstanciaParametrosDesdeParametroURL } from '../../Utils/getInstanci
 import { inicializaDatosPeticion } from '../../Utils/inicializaDatosPeticion';
 import { getParametroCodeDeURL } from '../../Utils/getParametroCodeDeUrl';
 import { DatosTH } from '../../Services/interfaces/DatosTH.Interface';
+import { validarURL } from '../../Utils/validarURL';
+import { ResponseValidarBEP } from '../../Services/interfaces/responseValidarBEP.interface';
 
 const Home: React.FC = () => {
   
@@ -30,7 +32,7 @@ const Home: React.FC = () => {
      });
 
      setData(newData);
-  }, [code]);
+  }, []);
 
   const inicializaDatosPortal = (code: string | null) => {
     if(code===null){
@@ -42,12 +44,60 @@ const Home: React.FC = () => {
       return datosParametroCodeDeURL;
     }
   }
+  
+  let validaVigenciaRespuesta = validarURL(data); 
+  const objectVR: ResponseValidarBEP = validaVigenciaRespuesta;
 
-  const [estadoPago, setEstadoPago] = React.useState(false);
+  console.log(objectVR.estado)
+  
+  /* validaVigenciaRespuesta.then(resultado => {
+    objectValidarBEP.estado = resultado.estado;
+    objectVR.estado = resultado.estado;
+    objectValidarBEP.codigoError = resultado.codigoError;
+    objectVR.codigoError = resultado.codigoError;
+    objectValidarBEP.descripcionError = resultado.descripcionError;
+    objectVR.descripcionError = resultado.descripcionError;
+  });
+  console.log(objectVR.estado);
+  console.log(objectVR.codigoError);
+  console.log(objectVR.descripcionError); */
+  
+  /* let responseValidarBilleteraEmailProspecto:string[] = [];
+  let registro1, registro2, registro3;
+  React.useEffect(() => {
+    validaVigenciaRespuesta.then(resultado => {
+      // Aquí puedes trabajar con el resultado, que sería el array [ "ko", "103", "Codigo no valido", false ]
+      if (resultado && resultado.length === 3) {
+        // Extrae cada elemento del array y asigna a variables individuales
+        [registro1, registro2, registro3] = resultado;
+    
+        // Puedes acceder a cada variable por separado
+        console.log("Registro 1:", registro1);
+        console.log("Registro 2:", registro2);
+        console.log("Registro 3:", registro3);    
+      } else {
+        console.error("La promesa no se resolvió como se esperaba.");
+      }
+  
+     //resultado.forEach((value, key) => {
+       // arregloVacio[key] = value
+        //console.log(key,value)
+        //responseValidarBilleteraEmailProspecto[key] = value;
+       //});
+    }) ; 
+  }, [validaVigenciaRespuesta]);
+  
+  
+  console.log(registro1, registro2, registro3) */
+
+  //console.log(responseValidarBilleteraEmailProspecto[0] === "ok" ? true : false)
+
+  //const [estadoPago, setEstadoPago] = React.useState(false);
+  const estado = objectVR.estado === "ok" ? true : false;
 
   return (
     <React.Fragment>
-      { estadoPago ? <Confirmacion /> : <Pago dataTH={data } /> }
+      { estado ? <Pago dataTH={data} /> : <Confirmacion validacionesEBP={objectVR} /> }
     </React.Fragment>
   );
 

@@ -27,6 +27,7 @@ export const SERVICE_APIGWCS_METHOD_VALIDA_RETO3DS = "GwValidarReto3DSEBS";
 export const SERVICE_APIGWCS_METHOD_EVALUA_RETO3DS = "GwEvaluarReto3DSEBS";
 export const SERVICE_APIGWCS_METHOD_PROCESA_TRANSACCION_DM =
   "GwProcesarTransaccionDMEBS";
+export const SERVICE_APIGWCS_METHOD_VALIDAR_BILLETERA_EMAIL_PROSPECTO = "GwValidarBilleteraEmailProspectoEBF";
 
 /**
  * Metodos de servicios OSB

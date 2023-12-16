@@ -1,6 +1,7 @@
 import React from 'react';
+import { ConfirmacionProps } from '../../../Services/interfaces/responseValidarBEP.interface';
 
-const Confirmacion: React.FC = () => {
+const Confirmacion: React.FC<ConfirmacionProps> = ({validacionesEBP}) => {
     
     return (
         <>
@@ -17,44 +18,59 @@ const Confirmacion: React.FC = () => {
                                     </svg>
                                 </div>
                                 <div className='block w-full h-[64px] mt-2 text-center'>
-                                    <span className='text-[22px] font-medium'>¡Pago realizado exitosamente!</span>
+                                    <span className='text-[22px] font-medium'>El enlace o tu código de verificación no es correcto</span>
                                 </div>
                             </div>
                         </div>
                         <div className='hidden lg:block border-[0.5px] border-sky-gray-500'></div>
                         <div className='block px-4 lg:px-0 py-2 mt-4 lg:mt-0 h-[281px] lg:h-[199px] border-[1px] lg:border-0 rounded-[10px]'>
                             <div className='flex flex-col justify-between h-[217px] lg:h-[191px] my-5 lg:my-0'>
-                                <div className='block mb-3'>
-                                    <span className='lg:hidden text-[22px] font-medium'>Detalle de tarjeta</span>
-                                    <span className='hidden lg:block text-base font-medium'>Datos de tarjeta</span>
-                                </div>
-                                <div className='block lg:hidden border-[0.5px] border-sky-gray-500'></div>
-                                <div className='flex flex-col mt-3'>
-                                <div className='block text-[14px] lg:text-base font-medium lg:font-normal pb-[1px] lg:pb-0'>Fecha: 20 de junio 2023</div>
-                                    <div className='hidden lg:block py-[1px] lg:py-0'>MASTERCARD</div>
-                                    <div className='block lg:hidden text-[14px] lg:text-base font-medium'>
-                                        <div className='block py-[1px] lg:py-0'>Daniel Alejandro Tellez Fernández</div>
-                                        <div className='block py-[1px] lg:py-0'>****   ****   ****   0123</div>
+                                {validacionesEBP.estado === "ok" ? 
+                                <>
+                                    <div className='block mb-3'>
+                                        <span className='lg:hidden text-[22px] font-medium'>Detalle de tarjeta</span>
+                                        <span className='hidden lg:block text-base font-medium'>Datos de tarjeta</span>
                                     </div>
-                                    <div className='hidden lg:block text-[14px] lg:text-base font-normal'>
-                                        <div className='block py-[1px] lg:py-0'>****   ****   ****   0123</div>
-                                        <div className='block py-[1px] lg:py-0'>Daniel Alejandro Tellez Fernández</div>
+                                    <div className='block lg:hidden border-[0.5px] border-sky-gray-500'></div>
+                                    <div className='flex flex-col mt-3'>
+                                        <div className='block text-[14px] lg:text-base font-medium lg:font-normal pb-[1px] lg:pb-0'>Fecha: 20 de junio 2023</div>
+                                        <div className='hidden lg:block py-[1px] lg:py-0'>MASTERCARD</div>
+                                        <div className='block lg:hidden text-[14px] lg:text-base font-medium'>
+                                            <div className='block py-[1px] lg:py-0'>Daniel Alejandro Tellez Fernández</div>
+                                            <div className='block py-[1px] lg:py-0'>****   ****   ****   0123</div>
+                                        </div>
+                                        <div className='hidden lg:block text-[14px] lg:text-base font-normal'>
+                                            <div className='block py-[1px] lg:py-0'>****   ****   ****   0123</div>
+                                            <div className='block py-[1px] lg:py-0'>Daniel Alejandro Tellez Fernández</div>
+                                        </div>
+                                        <div className='block text-[14px] lg:text-base font-medium lg:font-normal py-[1px] lg:py-0'>05/23</div>
+                                        <div className='block text-[14px] lg:text-base font-normal lg:font-normal pt-[1px] lg:pt-0'>Sirianes 255 Int 322, San Rafael, 09640 CDMX, México</div>
                                     </div>
-                                    <div className='block text-[14px] lg:text-base font-medium lg:font-normal py-[1px] lg:py-0'>05/23</div>
-                                    <div className='block text-[14px] lg:text-base font-normal lg:font-normal pt-[1px] lg:pt-0'>Sirianes 255 Int 322, San Rafael, 09640 CDMX, México</div>
-                                </div>
+                                </> 
+                                : 
+                                <>
+                                    <span className='text-[22px] font-medium'>{validacionesEBP.descripcionError}</span>
+                                </>}
+                                
                             </div>
                         </div>
                     </div>
                     <div className='flex flex-row items-center justify-around lg:h-[118px]'>
                         <button className='block h-[48px] w-full lg:w-[344px] bg-[#000FF5] text-white rounded-[4px]'>
                             <div className='flex justify-between items-start flex-row px-4'>
+                                {validacionesEBP.estado === "ok" ? 
+                                <>
                                 <span className='block text-base font-medium'>Aceptar</span>
                                 <div className='h-6 w-6 py-1'>
                                     <svg className='h-[15px] w-[18px]' viewBox="0 0 18 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M10.5 0.715332L9.4275 1.76008L15.1125 7.46533H0V8.96533H15.1125L9.4275 14.6451L10.5 15.7153L18 8.21533L10.5 0.715332Z" fill="white"/>
                                     </svg>
                                 </div>
+                                </> 
+                                : 
+                                <>
+                                <span className='block text-base font-medium'>Salir</span>
+                                </>}
                             </div>
                         </button>
                     </div>
