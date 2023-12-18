@@ -59,8 +59,7 @@ export const useApigwcsServices = () => {
    */
   const invokeService = async (
     serviceName: string,
-    payloadRequest: any,
-    alert?: alertType
+    payloadRequest: any
   ) => {
     try {
       resetRequest();

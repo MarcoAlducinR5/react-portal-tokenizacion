@@ -9,6 +9,7 @@
  */
 
 export const SERVICE_APIGWCS_METHOD_CONSULTA_BILLETERA = 'GwConsultarBilleteraEBF'
+export const SERVICE_APIGWCS_METHOD_VALIDAR_URL = 'GwValidarBilleteraEmailProspectoEBF'
 export const SERVICE_APIGWCS_METHOD_GENERA_URL = 'GwGenerarURLBilleteraEBF'
 export const SERVICE_APIGWCS_METHOD_CONSULTA_BINES = 'GwConsultarBinesEBS'
 export const SERVICE_APIGWCS_METHOD_CONSULTA_TIPOCAMBIO = 'GwConsultarTipoCambioEBS'

@@ -2,8 +2,8 @@
 export interface DatosTH {
   Origen?:string;
   Operacion?:string;
-  Cuenta?:number;
-  IdProspecto?:number;
+  Cuenta?:string;
+  IdProspecto?:string;
   Nombre?:string;
   Paterno?:string;
   Materno?:string;
@@ -18,11 +18,11 @@ export interface DatosTH {
   Estado?:string;
   Municipio?:string;
   CP?:number;
-  timestamp?:number;
+  timestamp?:string;
   Moneda?:string;
   Monto?:number;
   URLBTGS?:string;
-  CadValidacion?:number;
+  CadValidacion?:string;
   Servicio?:string;
   IdUnicoPago?:string;
   NumeroContrato?:number;

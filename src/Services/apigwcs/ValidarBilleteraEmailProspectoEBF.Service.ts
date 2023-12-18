@@ -27,13 +27,16 @@ export function GetDataService_ValidarBilleteraEmailProspecto( Origen: any, Emai
   */
   const payload: RequestValidarBilleteraEmailProspectoInterface = {
     EBMHeaderRequest: reqHeader,
-    Email : Email,
+    ValidarBilleteraListInput: [{
+      Email : Email,
     Servicio : Servicio,
     SistemaOrigen : Origen,
     CadenaValidacion : CadValidacion,
     NumCuenta : numeroCuenta,
     IdProspecto : idProspecto,
     Vigencia : timestamp
+    }
+    ]
   };
 
   /**
