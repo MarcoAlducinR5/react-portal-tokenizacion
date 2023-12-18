@@ -11,7 +11,7 @@ import { useValidarVigenciaUrl } from "../../Hooks/ValidarUrl";
 import { ReqValidarEmail } from "../../Services/apigwcs/ValidarUrl.Payload";
 
 const Home: React.FC = () => {
-  const { dataRespValUrl, loadingVigencia, ValidarVigenciaUrl, urlValida } =
+  const { dataRespValUrl, ValidarVigenciaUrl, urlValida } =
     useValidarVigenciaUrl();
 
   /*** Obtiene el valor del parámetro de la URL ***/
@@ -84,21 +84,7 @@ const Home: React.FC = () => {
             }}
           />
         )
-      ) : (
-        <div className="flex flex-col justify-center items-center ">
-          <div className="lg:border-[1px] border-sky-gray-500 rounded-[10px] mx-9 my-[125px] lg:mx-0 lg:my-[153px] w-[320px] h-[1900px] lg:w-[728px]  lg:px-[18px] lg:py-8 lg:h-[1335px]">
-            <div className="flex justify-between items-start flex-col lg:flex-row text-[#292929] border-b-[1px] border-sky-gray-500 pb-6">
-              <div>
-                {loadingVigencia ? (
-                  <span className="text-[22px] font-medium">Validando datos, por favor espera</span>
-                ) : (
-                  ""
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
+      ) : ''}
     </React.Fragment>
   );
 };

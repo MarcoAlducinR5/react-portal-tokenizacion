@@ -15,7 +15,7 @@ import { useEffect, useState } from "react";
  * @returns datos de billetera: dataResponse, y loading: useState de consulta
  */
 export const useValidarVigenciaUrl = () => {
-  const { dataResponse, loading, invokeService } = useApigwcsServices();
+  const { dataResponse, invokeService } = useApigwcsServices();
   const [urlValida, setUrlValida] = useState<boolean | null>(null);
 
   async function ValidarVigenciaUrl(reqValidarEmail: ReqValidarEmail) {
@@ -37,7 +37,6 @@ export const useValidarVigenciaUrl = () => {
 
   return {
     dataRespValUrl: dataResponse,
-    loadingVigencia: loading,
     ValidarVigenciaUrl, urlValida
   };
 };

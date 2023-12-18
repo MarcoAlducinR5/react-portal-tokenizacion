@@ -20,7 +20,7 @@ import MensajeRsp from "../../Components/Home/Respuestas/MensajeRsp";
 import { ValidarMonto, ValidarOperacion } from "./Validaciones";
 
 const Tokenizacion: FC = () => {
-  //estado general de la liga, aqui de inicio es 0 lo que indica que no se ha dado inicio a la validacion
+  //estado general de validacion para la liga, aqui de inicio es 0 lo que indica que no se ha dado inicio a la validacion
   /**
    * 0: valor de inicio
    * 1: parametro code recuperado de la URL
@@ -31,7 +31,7 @@ const Tokenizacion: FC = () => {
    */
   const [estadoLiga, setEstadoLiga] = useState<number>(0);
 
-  const [msjEstadoLiga, setMjEstadoLiga] = useState(MSJ_VALIDANDO);
+  const [msjEstadoLiga, setMsjEstadoLiga] = useState(MSJ_VALIDANDO);
 
   const { ValidarVigenciaUrl, urlValida, dataRespValUrl } =
     useValidarVigenciaUrl();
@@ -50,7 +50,7 @@ const Tokenizacion: FC = () => {
     if (code === null) {
       //se marca el estado que no fue encontrado el parametro code en la liga
       setEstadoLiga(-1);
-      setMjEstadoLiga(MSJ_CODE_NOTFOUND);
+      setMsjEstadoLiga(MSJ_CODE_NOTFOUND);
 
       return "No se recuperó el parametro CODE de la cadena obtenida de la URL.";
     } else {
@@ -68,13 +68,13 @@ const Tokenizacion: FC = () => {
    */
   async function ValidarDatosRequeridos(){
     console.log('validando si la liga contiene los valores minimos requeridos')
-    setMjEstadoLiga(MSJ_VALIDANDO);
+    setMsjEstadoLiga(MSJ_VALIDANDO);
     const operacion = data.Operacion ?? '';
     if(ValidarOperacion(operacion)){
       setEstadoLiga(2)
     }else {
       setEstadoLiga(-1);
-      setMjEstadoLiga(MSJ_NODATA_REQUIRED);
+      setMsjEstadoLiga(MSJ_NODATA_REQUIRED);
     }
   }
   /**
@@ -90,7 +90,7 @@ const Tokenizacion: FC = () => {
       idProspecto: data.IdProspecto ?? "",
       numeroCuenta: data.Cuenta ?? ""
     };
-    setMjEstadoLiga(MSJ_VALIDANDO);
+    setMsjEstadoLiga(MSJ_VALIDANDO);
     await ValidarVigenciaUrl(reqValidarEmail);
     setEstadoLiga(3);
   }
@@ -99,7 +99,7 @@ const Tokenizacion: FC = () => {
    */
   async function ValidarParametrosOrigen(){
     console.log('validando si la liga contiene los valores requeridos por Origen')
-    setMjEstadoLiga(MSJ_VALIDANDO);
+    setMsjEstadoLiga(MSJ_VALIDANDO);
     const operacion = data.Operacion ?? '';
     const monto = data.Monto ?? 0;
 
@@ -109,7 +109,7 @@ const Tokenizacion: FC = () => {
       setEstadoLiga(4);
     }else {
       setEstadoLiga(-1);
-      setMjEstadoLiga(MSJ_NODATA_REQUIRED);
+      setMsjEstadoLiga(MSJ_NODATA_REQUIRED);
     }
   }
 
@@ -143,7 +143,7 @@ const Tokenizacion: FC = () => {
         ValidarParametrosOrigen()
       }else{
           console.log('Liga no valida o null')
-          setMjEstadoLiga(dataRespValUrl?.message ?? MSJ_VALIDANDO);
+          setMsjEstadoLiga(dataRespValUrl?.message ?? MSJ_VALIDANDO);
       }
     } 
   }, [estadoLiga,urlValida]);
