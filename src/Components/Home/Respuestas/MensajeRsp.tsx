@@ -15,7 +15,7 @@ export type propsMsjRep = {
 const MensajeRsp: FC<propsMsjRep> = (props) => {
   return (
     <div className="flex flex-col justify-center items-center ">
-      <div className="lg:border-[1px] border-sky-gray-500 rounded-[10px] mx-9 my-[125px] lg:mx-0 lg:my-[153px] w-[281px] h-[617px] lg:w-[728px] lg:h-[395px] lg:px-[18px] lg:pt-8">
+      <div className={`lg:border-[1px] border-sky-gray-500 rounded-[10px] mx-9 my-[125px] lg:mx-0 lg:my-[153px] w-[281px] lg:w-[728px] lg:px-[18px] lg:pt-8 ${ props.estado === "ok" ? "h-[617px] lg:h-[395px]" : "h-[507px] lg:h-[325px]" }`}>
         <div className="flex flex-col mb-14 lg:mb-11">
           <div className="block py-2 lg:py-0 mb-4 lg:mb-0 h-[186px] lg:h-[120px] border-[1px] lg:border-0 rounded-[10px]">
             <div className="flex flex-col items-center justify-around h-[122px] lg:h-[120px] my-5 lg:my-0">
@@ -29,12 +29,14 @@ const MensajeRsp: FC<propsMsjRep> = (props) => {
                 <svg
                   width="21"
                   height="16"
-                  viewBox="0 0 21 16"
+                  viewBox={`${
+                    props.estado === "ok" ? "0 0 21 16" : "0 0 64 64" }` }
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
-                    d="M7.5 15.621L0 8.1195L2.1195 6L7.5 11.379L18.8775 0L21 2.1225L7.5 15.621Z"
+                    d={`${
+                      props.estado === "ok" ? "M7.5 15.621L0 8.1195L2.1195 6L7.5 11.379L18.8775 0L21 2.1225L7.5 15.621Z" : "M62 10.571L53.429 2L32 23.429L10.571 2L2 10.571L23.429 32L2 53.429L10.571 62L32 40.571L53.429 62L62 53.429L40.571 32z" }` }
                     fill={`${
                         props.estado === "ok" ? '#198038' : '#801919' }` }
                   />
@@ -47,8 +49,8 @@ const MensajeRsp: FC<propsMsjRep> = (props) => {
           </div>
 
           <div className="hidden lg:block border-[0.5px] border-sky-gray-500"></div>
-          <div className="block px-4 lg:px-0 py-2 mt-4 lg:mt-0 h-[281px] lg:h-[199px] border-[1px] lg:border-0 rounded-[10px]">
-            <div className="flex flex-col justify-between h-[217px] lg:h-[191px] my-5 lg:my-0">
+          <div className={`block px-4 lg:px-0 py-2 mt-4 lg:mt-0 ${ props.estado === "ok" ? "h-[281px] lg:h-[199px]" : "h-[186px] lg:h-[129px]" } border-[1px] lg:border-0 rounded-[10px]`}>
+            <div className={`flex flex-col justify-between ${ props.estado === "ok" ? "h-[217px] lg:h-[191px]" : "h-[130px] lg:h-[121px]" } my-5 lg:my-0`}>
               {props.estado === "ok" ? (
                 <>
                   <div className="block mb-3">
@@ -93,9 +95,9 @@ const MensajeRsp: FC<propsMsjRep> = (props) => {
                 </>
               ) : (
                 <>
-                  <span className="text-[22px] font-medium">
+                  <div className="block w-full h-[64px] mb-3 text-center  text-[14px] lg:text-[22px] font-medium">
                     {props.descripccion}
-                  </span>
+                  </div>
                 </>
               )}
             </div>
